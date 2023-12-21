@@ -5,10 +5,13 @@ class Chatwoot::ValidEvent < Micro::Case
 
   def call!
     if ( 
-      event['event'] == 'message_created' &&
-      event['message_type'] == 'incoming' &&
-      valid_status?(event['conversation']['status'])
-    )
+    (event['event'] == 'message_created' &&
+     event['message_type'] == 'incoming' &&
+     valid_status?(event['conversation']['status'])) ||
+    (event['event'] == 'message_updated' &&
+     event['content_type'] == 'input_select' &&
+     event['content_attributes'].key?('submitted_values'))
+  )
       Success result: {event: event}
     else
       Failure result: { message: 'Invalid event' }
