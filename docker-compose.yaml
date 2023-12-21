@@ -66,7 +66,7 @@ services:
     command: sh -c "bundle exec sidekiq -C config/sidekiq.yml"
 
   bridge:
-    image: douglara/chatwoot-botpress-bridge:1
+    image: chatwoot-botpress-bridge:2.0
     environment:
       - RAILS_ENV=production
       - RAILS_LOG_TO_STDOUT=true
