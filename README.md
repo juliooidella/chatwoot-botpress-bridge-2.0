@@ -10,8 +10,10 @@ This is a bridge connection chatwoot botpress.
 You need `ruby 3.2.2`
 Clone this project:
 ```sh
-git clone https://github.com/douglara/chatwoot-botpress-bridge.git
-cd chatwoot-botpress-bridge
+git clone https://github.com/juliooidella/chatwoot-botpress-bridge-2.0.git
+cd chatwoot-botpress-bridge-2.0
+docker build -t chatwoot-botpress-bridge:2.0 .
+docker-compose up -d
 ```
 
 Copy configuration file:
